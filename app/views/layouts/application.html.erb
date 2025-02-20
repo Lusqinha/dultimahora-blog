@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Dultimahora Blog" %></title>
+    <title>DultimaBLog | <%= content_for(:title) || "Posts" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,6 +23,23 @@
   </head>
 
   <body>
+    <header>
+      <nav class="bg-[#2248ff] text-white p-5">
+        <div class="container mx-auto flex justify-between">
+          <a href="/" class="font-bold text-2xl">
+            <%# quero renderizar uma imagem que está no assets images %>
+            <%= image_tag 'isologo-laranja.svg', class: 'h-12' %>
+          </a>
+          <div class="flex  gap-2 justify-center items-center">
+            <% if authenticated? %>
+              <%= button_to 'Sair', session_path, method: :delete, data: { turbo_method: :delete } %>
+            <% else %>
+              <%= link_to 'Entrar', new_session_path, class: "font-bold text-xl" %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </header>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
