@@ -8,3 +8,22 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ body {
+     --dot-bg: white;
+     --dot-color: black;
+     --dot-size: 1px;
+     --dot-space: 22px;
+     background:
+         linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+         linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+         var(--dot-color);
+ }
+
+
+ .post-content p {
+    text-align: justify;
+    font-size: 1.2em;
+    line-height: 1.6em;
+    margin-bottom: 1.5em;
+ }
