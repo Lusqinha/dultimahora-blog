@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DultimaBLog | <%= content_for(:title) || "Posts" %></title>
+    <title>DultimaBlog | <%= content_for(:title) || "Posts" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -28,7 +28,7 @@
         <div class="container mx-auto flex justify-between">
           <a href="/" class="font-bold text-2xl">
             <%# quero renderizar uma imagem que está no assets images %>
-            <%= image_tag 'isologo-laranja.svg', class: 'h-12' %>
+            <%= image_tag 'isologo-laranja.svg', class: 'h-10 md:h-12' %>
           </a>
           <div class="flex  gap-2 justify-center items-center">
             <% if authenticated? %>
