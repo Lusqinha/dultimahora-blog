@@ -40,7 +40,7 @@
             <a href="/" class="font-bold text-2xl">
               <%= image_tag 'isologo-laranja.svg', class: 'h-10 md:h-12' %>
             </a>
-            <span class="font-bold text-xs gap-1 flex items-center mt-1 justify-center">A newsletter do <%= image_tag 'isotipo-laranja.svg', class: 'h-3 mb-[2px]' %></span>
+            <span class="font-bold text-xs flex items-center mt-1 justify-center">Seu newsletter de <%= image_tag 'isotipo-laranja.svg', class: 'h-3 mb-[2px] ml-1' %>omingo à noite</span>
           </div>
         </div>
       </nav>
@@ -49,8 +49,6 @@
       <%= yield %>
 
       <% if authenticated? %>
-      <%# um botão flutuante no canto direito inferior com o logo do D', quando clicado abre um menu dropdown para cima com uma lista de ferramentas administrativas, inicialmente será apenas um botão de sair %>
-
       <div class="fixed bottom-5 right-5">
         <div class="flex items-center justify-center">
 
@@ -68,14 +66,12 @@
           <button class="bg-[#2248ff] text-white p-3 rounded-full shadow-lg" onclick="alterMenu()">
             <span class="flex justify-center items-center font-bold" >A<%= image_tag 'isotipo-laranja.svg', class: 'h-3' %>min</span>
           </button>
-
-          <%# quero que os items adicionados apareçam acima, e não abaixo %>
           <ul id="admin-menu" class="hidden absolute w-[150px] right-0 bottom-12 bg-white shadow-lg rounded-lg flex flex-col gap-2 p-2 ">
-            <li class="text-white bg-[#2248ff] p-2 rounded-lg">
-              <%= link_to 'Novo Post', new_post_path, class: "font-bold text-sm cursor-pointer" %>
+            <li class="text-white bg-[#2248ff] p-2 rounded-lg w-full">
+              <%= link_to 'Novo Post', new_post_path, class: "font-bold text-sm cursor-pointer w-full" %>
             </li>
-            <li class="text-white bg-[#2248ff] p-2 rounded-lg">
-              <%= button_to 'Sair', session_path, method: :delete, data: { turbo_method: :delete }, class: "font-bold cursor-pointer text-sm" %>
+            <li class="text-white bg-[#2248ff] p-2 rounded-lg w-full">
+              <%= button_to 'Sair', session_path, method: :delete, data: { turbo_method: :delete }, class: "font-bold cursor-pointer text-sm w-full text-left" %>
             </li>
           </ul>
           
