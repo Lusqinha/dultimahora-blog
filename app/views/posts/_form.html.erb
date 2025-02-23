@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class="mt-5">
+    <%= form.label :title, "Titulo", class: "block font-medium" %>
+    <%= form.text_field :title, class: "rounded-md px-3.5 py-2.5 w-full border border-gray-200" %>
+  </div>
+
+  <div class="mt-5">
+    <%= form.label :content, "Conteúdo", class: "block font-medium" %>
+    <%= form.text_area :content, class: "rounded-md px-3.5 py-2.5 w-full border border-gray-200" %>
+  </div>
+
   <div class="inline">
     <%= form.submit class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
   </div>
