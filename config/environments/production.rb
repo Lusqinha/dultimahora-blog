@@ -15,6 +15,11 @@ Rails.application.configure do
   # Turn on fragment caching in view templates.
   config.action_controller.perform_caching = true
 
+  config.i18n.fallbacks = true
+  config.i18n.default_locale = :'pt_BR'
+  config.i18n.available_locales = [ :'pt_BR', :en ]
+  config.time_zone= "Brasilia"
+
   # Cache assets for far-future expiry since they are all digest stamped.
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
 

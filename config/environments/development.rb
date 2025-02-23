@@ -57,6 +57,9 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
+  config.i18n.available_locales = [ :'pt_BR', :en ]
+  config.i18n.default_locale = :'pt_BR'
+  config.time_zone= "Brasilia"
 
   # Annotate rendered view with file names.
   config.action_view.annotate_rendered_view_with_filenames = true
