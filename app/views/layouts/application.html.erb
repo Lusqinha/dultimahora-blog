@@ -24,17 +24,19 @@
 
   <body>
     <header>
-      <nav class="bg-[#2248ff] text-white p-5">
-        <div class="container mx-auto flex justify-between">
-          <a href="/" class="font-bold text-2xl">
-            <%# quero renderizar uma imagem que está no assets images %>
-            <%= image_tag 'isologo-laranja.svg', class: 'h-10 md:h-12' %>
-          </a>
+      <nav class="bg-[#2248ff] text-white p-5 shadow-lg">
+        <div class="container mx-auto flex justify-center items-center">
+          <div class="flex flex-col items-center">
+            <a href="/" class="font-bold text-2xl">
+              <%# quero renderizar uma imagem que está no assets images %>
+              <%= image_tag 'isologo-laranja.svg', class: 'h-10 md:h-12' %>
+            </a>
+            <span class="font-bold text-xs">Newsletter do <span class="text-[#ffbf00]">D'</span></span>
+          </div>
           <div class="flex  gap-2 justify-center items-center">
             <% if authenticated? %>
+              <%= link_to 'Novo Post', new_post_path, class: "font-bold text-xl cursor-pointer" %>
               <%= button_to 'Sair', session_path, method: :delete, data: { turbo_method: :delete }, class: "font-bold text-xl cursor-pointer" %>
-            <% else %>
-              <%= link_to 'Entrar', new_session_path, class: "font-bold text-xl" %>
             <% end %>
           </div>
         </div>
