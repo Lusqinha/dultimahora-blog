@@ -8,7 +8,15 @@ fi
 
 # If running the rails server then create or migrate existing database
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+  echo "Rodando db:prepare..."
   ./bin/rails db:prepare
+
+  echo "Verificando se o usuário admin já existe..."
+  ./bin/rails runner "User.find_or_create_by!(email_address: ENV['ADMIN_EMAIL']) do |user|
+    user.password = ENV['ADMIN_PASSWORD']
+    user.password_confirmation = ENV['ADMIN_PASSWORD']
+    user.name = 'Admin'
+  end"
 fi
 
 exec "${@}"
