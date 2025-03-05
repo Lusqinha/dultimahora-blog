@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
-
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ create new edit update ]
 
   # GET /posts or /posts.json
   def index
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.user = @user
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Post was successfully created." }
@@ -63,6 +63,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params.expect(:id))
+    end
+
+    def set_user
+      @user = current_user
     end
 
     # Only allow a list of trusted parameters through.
