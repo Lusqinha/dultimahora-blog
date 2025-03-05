@@ -15,7 +15,7 @@ if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails runner "User.find_or_create_by!(email_address: ENV['ADMIN_EMAIL']) do |user|
     user.password = ENV['ADMIN_PASSWORD']
     user.password_confirmation = ENV['ADMIN_PASSWORD']
-    user.name = 'Admin'
+    user.name = ENV['ADMIN_NAME']
   end"
 fi
 
