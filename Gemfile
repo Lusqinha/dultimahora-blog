@@ -68,3 +68,7 @@ end
 gem "rails-i18n", "~> 8.0.0"
 
 gem "byebug", "~> 11.1"
+
+gem "aws-sdk-s3", "~> 1.182"
+
+gem "friendly_id", "~> 5.5"
