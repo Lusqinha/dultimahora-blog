@@ -7,12 +7,11 @@
 
   <div class="flex justify-between items-center flex-row-reverse">
     <% if authenticated? %>
-      <%= link_to "Editar", edit_post_path(@post), class: "mt-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+      <%= link_to "Editar", edit_post_path(@post), class: "mt-2 rounded-md px-3.5 py-2.5 bg-yellow-500 hover:bg-yellow-300 inline-block font-medium" %>
       <div class="inline-block ml-2">
         <%= button_to "Apagar", @post, method: :delete, class: "mt-2 rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Tem certeza?" } %>
       </div>
     <% end %>
-    <%= link_to "Voltar", posts_path, class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   </div>
   <%= render @post %>
 </div>

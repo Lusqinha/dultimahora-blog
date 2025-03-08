@@ -9,7 +9,7 @@
     <% if @posts.any? %>
       <% @posts.each do |post| %>
         <div class="flex flex-row md:w-4/6 mx-auto max-w-[656px]">
-          <div class="px-10 py-6 rounded-4xl rounded-r-none w-full text-white bg-[#0047FF] md:min-h-[250px] flex flex-col justify-around">
+          <div class="px-10 py-6 rounded-4xl rounded-r-none w-full text-white bg-[#FFBF00] md:min-h-[250px] flex flex-col justify-around">
             <div class="flex justify-between items-start flex-col">
               <h2 class="font-bold text-2xl md:text-4xl"><%= link_to truncate(post.title, length: 50), post_path(post) %></h2>
               <p class="text-[#ffff]/60 text-xs"><%= time_ago_in_words(post.created_at) %> atrás</p>
@@ -17,15 +17,14 @@
             <p class="flex items-center mt-4 p-3 md:py-5 bg-[#ffff]/25 rounded-lg font-semibold overflow-y-scroll h-20 md:h-32 text-xs sm:text-sm md:text-base
             "><%= truncate(strip_tags(post.content.to_s).gsub(/&nbsp;/, ' '), length: 150) %></p>
             <div class="flex items-center justify-between mt-5">
-              <div class="bg-[#FFBF00] w-32 text-center p-3 rounded-xl">
-                <%= link_to "Ler mais", post_path(post), class: "text-white text-center font-bold hover:underline text-lg " %>
-                <%# add isotipo-laranja.svg %>
+              <div class="">
+                <%= link_to "Ler mais", post_path(post), class: "bg-white/50 w-32 text-center p-3 rounded-xl text-white text-center font-bold hover:underline text-lg " %>
               </div>
                 <%= image_tag 'isotipo-branco.svg', class: "w-12 hidden md:block" %>
             </div>
           </div>    
-          <div class="border-l-5 border-dashed border-[#FFFF] rounded-r-4xl bg-[#0047FF] w-20 flex items-center">
-            <div class="absolute rounded-full bg-white w-8 h-8 p-8 ml-10"></div>
+          <div class="border-l-5 border-dashed border-[#FFFF] rounded-r-4xl bg-[#FFBF00] w-20 flex items-center">
+            <div class="absolute rounded-full bg-[#1a1a1a] w-8 h-8 p-8 ml-10"></div>
           </div>
         </div>
                    
