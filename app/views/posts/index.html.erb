@@ -5,11 +5,11 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div id="posts" class="min-w-full divide-y divide-gray-200 space-y-5">
+  <div id="posts" class="min-w-full space-y-5">
     <% if @posts.any? %>
       <% @posts.each do |post| %>
         <div class="flex flex-row md:w-4/6 mx-auto max-w-[656px]">
-          <div class="px-10 py-6 rounded-4xl rounded-r-none w-full text-white bg-[#FFBF00] md:min-h-[250px] flex flex-col justify-around">
+          <div class="px-10 py-6 rounded-4xl rounded-r-none w-full text-white bg-[#ffbf00] md:min-h-[250px] flex flex-col justify-around">
             <div class="flex justify-between items-start flex-col">
               <h2 class="font-bold text-2xl md:text-4xl"><%= link_to truncate(post.title, length: 50), post_path(post) %></h2>
               <p class="text-[#ffff]/60 text-xs"><%= time_ago_in_words(post.created_at) %> atrás</p>
@@ -23,7 +23,7 @@
                 <%= image_tag 'isotipo-branco.svg', class: "w-12 hidden md:block" %>
             </div>
           </div>    
-          <div class="border-l-5 border-dashed border-[#FFFF] rounded-r-4xl bg-[#FFBF00] w-20 flex items-center">
+          <div class="border-l-5 border-dashed border-[#FFFF] rounded-r-4xl bg-[#ffbf00] w-20 flex items-center">
             <div class="absolute rounded-full bg-[#1a1a1a] w-8 h-8 p-8 ml-10"></div>
           </div>
         </div>
