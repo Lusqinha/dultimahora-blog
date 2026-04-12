@@ -8,26 +8,23 @@
   <div id="posts" class="min-w-full space-y-5">
     <% if @posts.any? %>
       <% @posts.each do |post| %>
-        <div class="flex flex-row md:w-4/6 mx-auto max-w-[656px]">
-          <div class="px-10 py-6 rounded-4xl rounded-r-none w-full text-white bg-[#ffbf00] md:min-h-[250px] flex flex-col justify-around">
-            <div class="flex justify-between items-start flex-col">
-              <h2 class="font-bold text-2xl md:text-4xl"><%= link_to truncate(post.title, length: 50), post_path(post) %></h2>
+        <div class="flex flex-row w-[calc(100%-2rem)] sm:w-4/5 md:w-4/6 mx-auto max-w-[656px]">
+          <div class="px-6 md:px-10 py-6 rounded-4xl rounded-r-none w-full text-white bg-[#ffbf00] flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+              <h2 class="font-bold text-base sm:text-2xl md:text-4xl leading-tight"><%= link_to truncate(post.title, length: 60), post_path(post) %></h2>
               <p class="text-[#ffff]/60 text-xs"><%= time_ago_in_words(post.created_at) %> atrás</p>
             </div>
-            <p class="flex items-center mt-4 p-3 md:py-5 bg-[#ffff]/25 rounded-lg font-semibold overflow-y-scroll h-20 md:h-32 text-xs sm:text-sm md:text-base
-            "><%= truncate(strip_tags(post.content.to_s).gsub(/&nbsp;/, ' '), length: 150) %></p>
-            <div class="flex items-center justify-between mt-5">
-              <div class="">
-                <%= link_to "Ler mais", post_path(post), class: "bg-white/50 w-32 text-center p-3 rounded-xl text-white text-center font-bold hover:underline text-lg " %>
-              </div>
-                <%= image_tag 'isotipo-branco.svg', class: "w-12 hidden md:block" %>
+            <p class="hidden sm:block p-3 bg-[#ffff]/25 rounded-lg font-semibold text-xs sm:text-sm md:text-base overflow-y-scroll h-20 md:h-32 scrollbar-hide"><%= strip_tags(post.content.to_s).gsub(/&nbsp;/, ' ').strip %></p>
+            <div class="flex items-center justify-between">
+              <%= link_to "Ler mais", post_path(post), class: "bg-white/50 px-5 py-2.5 rounded-xl text-white font-bold hover:underline text-sm md:text-base" %>
+              <%= image_tag 'isotipo-branco.svg', class: "w-10 hidden md:block" %>
             </div>
-          </div>    
-          <div class="border-l-5 border-dashed border-[#FFFF] rounded-r-4xl bg-[#ffbf00] w-20 flex items-center">
-            <div class="absolute rounded-full bg-[#1a1a1a] w-8 h-8 p-8 ml-10"></div>
+          </div>
+          <div class="border-l-5 border-dashed border-[#FFFF] rounded-r-4xl bg-[#ffbf00] w-10 sm:w-14 md:w-20 flex items-center shrink-0">
+            <div class="absolute rounded-full bg-[#1a1a1a] w-6 h-6 sm:w-8 sm:h-8 p-4 sm:p-8 ml-5 sm:ml-7 md:ml-10"></div>
           </div>
         </div>
-                   
+
       <% end %>
     <% else %>
       <p class="text-center my-10">No posts found.</p>

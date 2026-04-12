@@ -17,6 +17,15 @@
  }
 
 
+ .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+ }
+
+ .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+ }
+
  .post-content p {
     text-align: justify;
     font-size: 1.2em;
